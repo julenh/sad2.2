@@ -13,10 +13,16 @@ public class practica2 {
 	}
 	
 	public void cargarDatos() {
-		DataSource source = new DataSource("/adult.train.arff");
-		Instances dataset = new source.getDataset();
-		if(dataset.classIndex() == -1) {
-			dataset.setClassIndex(dataset.numAttributes() - 1);
+		DataSource sourceTrain = new DataSource("/adult.train.arff");
+		Instances datasetTrain = new sourceTrain.getDataset();
+		if(datasetTrain.classIndex() == -1) {
+			datasetTrain.setClassIndex(datasetTrain.numAttributes() - 1);
+		}
+		DataSource sourceTest = new DataSource("/adult.test.arff");
+		Instances datasetTrain = new sourceTest.getDataset();
+		if(datasetTrain.classIndex() == -1) {
+			datasetTrain.setClassIndex(datasetTrain.numAttributes() - 1);
 		}
 	}
+	
 }
