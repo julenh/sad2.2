@@ -14,9 +14,11 @@ import weka.core.AttributeStats;
 import weka.classifiers.bayes.NaiveBayes;//clasificador naive bayes
 import weka.classifiers.functions.SMO;// clasificador SMO
 import weka.classifiers.trees.J48;// clasificador J48 (el que sale en la pagina de weka)
-
+import weka.classifiers.Evaluation;
 
 import java.io.*;
+//para probar otro cargador de datos
+
 
 public class practica2 {
 
@@ -25,8 +27,8 @@ public class practica2 {
 		estadisticasAtributos();
 	}
 	
-	public void cargarDatos() {
-		DataSource sourceTrain = new DataSource("/adult.train.arff");
+/*	public void cargarDatos() {
+		DataSource sourceTrain = new DataSource("C:/Users/julen/Downloads/datos/adult.train.arff");
 		Instances datasetTrain = new sourceTrain.getDataSet();
 		if(datasetTrain.classIndex() == -1) {
 			datasetTrain.setClassIndex(datasetTrain.numAttributes() - 1);
@@ -36,7 +38,7 @@ public class practica2 {
 		if(datasetTest.classIndex() == -1) {
 			datasetTest.setClassIndex(datasetTest.numAttributes() - 1);
 		}
-	}
+	}*/
 	public static Instances cargarDatos2() {
 		 Instances dataset = null;
 		try {
@@ -49,6 +51,10 @@ public class practica2 {
 			e.printStackTrace();
 		}
          return dataset;
+	}
+	public static Instances cargarDatos3() throws FileNotFoundException, IOException {
+		Instances dataset = new Instances(new BufferedReader(new FileReader("C:/Users/julen/Downloads/datos/adult.train.arff")));
+		return dataset;
 	}
 	
 	public Instances filtrarDatos() throws Exception {
@@ -65,7 +71,7 @@ public class practica2 {
 	}
 	// manejo de atributos
 	public static void estadisticasAtributos() {
-		Instances datos = cargarDatos2();
+		Instances datos = cargarDatos3();
 		int numeroAtributos = datos.numAttributes()-1;
 		for(int i=0; i<numeroAtributos; i++) {
 			// estadisticas del atributo
@@ -118,7 +124,7 @@ public class practica2 {
 		
 		
 	}
-	public void evaluacion() {
+	public void evaluacion() { //evaluacion de modelos
 		
 	}
 	
