@@ -70,7 +70,7 @@ public class practica2 {
 		return nuevoDataset;
 	}
 	// manejo de atributos
-	public static void estadisticasAtributos() {
+	public static void estadisticasAtributos() throws FileNotFoundException, IOException {
 		Instances datos = cargarDatos3();
 		int numeroAtributos = datos.numAttributes()-1;
 		for(int i=0; i<numeroAtributos; i++) {
