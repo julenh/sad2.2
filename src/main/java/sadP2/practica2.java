@@ -22,7 +22,7 @@ public class practica2 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		clasificacion();
 	}
 	
 	public void cargarDatos() {
@@ -37,7 +37,7 @@ public class practica2 {
 			datasetTest.setClassIndex(datasetTest.numAttributes() - 1);
 		}
 	}
-	public Instances cargarDatos2() {
+	public static Instances cargarDatos2() {
 		 Instances dataset = null;
 		try {
 			dataset = DataSource.read("/adult.train.arff");
@@ -100,7 +100,7 @@ public class practica2 {
 		
 	}
 	// construccion de los clasificadores
-	public void clasificacion() throws Exception {
+	public static void clasificacion() throws Exception {
 		//clasificador naive bayes
 		Instances dataset = cargarDatos2();//cargar dataset
 		dataset.setClassIndex(dataset.numAttributes()-1);//asignar la clase al ultimo atributo
@@ -109,9 +109,12 @@ public class practica2 {
 		// clasificador SMO
 		SMO smo = new SMO();
 		smo.buildClassifier(dataset);
-		// clasificador J48
-		J48 arbol = new J48();
-		arbol.buildClassifier(dataset);
+		// clasificador J48 y opciones (https://weka.sourceforge.io/doc.stable-3-8/)
+		String[] opciones = new String[1];
+		opciones[0] = "-U";//opcion unpruned tree
+		J48 arbol = new J48();//crear arbol
+		arbol.setOptions(opciones);//establecer las opciones
+		arbol.buildClassifier(dataset);// contruir el clasificador
 		
 		
 	}
