@@ -13,7 +13,7 @@ import weka.core.AttributeStats;
 //clasificacion
 import weka.classifiers.bayes.NaiveBayes;//clasificador naive bayes
 import weka.classifiers.functions.SMO;// clasificador SMO
-import weka.classifiers.trees.j48.*;// clasificador J48 (el que sale en la pagina de weka)
+import weka.classifiers.trees.J48;// clasificador J48 (el que sale en la pagina de weka)
 
 
 import java.io.*;
@@ -110,7 +110,8 @@ public class practica2 {
 		SMO smo = new SMO();
 		smo.buildClassifier(dataset);
 		// clasificador J48
-		J48 tree = new J48();
+		J48 arbol = new J48();
+		arbol.buildClassifier(dataset);
 		
 		
 	}
