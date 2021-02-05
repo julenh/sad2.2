@@ -22,7 +22,7 @@ public class practica2 {
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
-		clasificacion();
+		estadisticasAtributos();
 	}
 	
 	public void cargarDatos() {
@@ -64,7 +64,7 @@ public class practica2 {
 		
 	}
 	// manejo de atributos
-	public void estadisticasAtributos() {
+	public static void estadisticasAtributos() {
 		Instances datos = cargarDatos2();
 		int numeroAtributos = datos.numAttributes()-1;
 		for(int i=0; i<numeroAtributos; i++) {
