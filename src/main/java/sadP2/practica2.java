@@ -10,6 +10,10 @@ import weka.filters.unsupervised.attribute.Remove;
 //manejo y estadisticas de atributos
 import weka.experiment.Stats;
 import weka.core.AttributeStats;
+//clasificacion
+import weka.classifiers.bayes.NaiveBayes;//clasificador naive bayes
+import weka.classifiers.functions.SMO;// clasificador SMO
+import weka.classifiers.trees.j48.*;// clasificador J48 (el que sale en la pagina de weka)
 
 
 import java.io.*;
@@ -95,8 +99,19 @@ public class practica2 {
 		System.out.println("numero de instancias"+numInsTemporal);
 		
 	}
-	
-	public void clasificacion() {
+	// construccion de los clasificadores
+	public void clasificacion() throws Exception {
+		//clasificador naive bayes
+		Instances dataset = cargarDatos2();//cargar dataset
+		dataset.setClassIndex(dataset.numAttributes()-1);//asignar la clase al ultimo atributo
+		NaiveBayes nBayes = new NaiveBayes();//crear y construir el clasificador
+		nBayes.buildClassifier(dataset);
+		// clasificador SMO
+		SMO smo = new SMO();
+		smo.buildClassifier(dataset);
+		// clasificador J48
+		J48 tree = new J48();
+		
 		
 	}
 	public void evaluacion() {
