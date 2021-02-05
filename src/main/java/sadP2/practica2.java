@@ -51,7 +51,7 @@ public class practica2 {
          return dataset;
 	}
 	
-	public void filtrarDatos() throws Exception {
+	public Instances filtrarDatos() throws Exception {
 		//caragr datos
 		Instances viejoDataset = cargarDatos2();
 		// usa el filtro para quitar el segundo atributo
@@ -61,7 +61,7 @@ public class practica2 {
 	    quitar.setOptions(opciones);// configurar lo que se quita
 		quitar.setInputFormat(cargarDatos2());
 		Instances nuevoDataset = Filter.useFilter(viejoDataset, quitar);//aplicar el filtro
-		
+		return nuevoDataset;
 	}
 	// manejo de atributos
 	public static void estadisticasAtributos() {
