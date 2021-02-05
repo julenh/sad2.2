@@ -20,7 +20,7 @@ import java.io.*;
 
 public class practica2 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		clasificacion();
 	}
