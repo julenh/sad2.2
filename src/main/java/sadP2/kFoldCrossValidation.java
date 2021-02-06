@@ -7,7 +7,7 @@ import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.NaiveBayes;
 public class kFoldCrossValidation {
 	public static void main(String args[]) throws Exception{
-		DataSource source = new DataSource("C:/Users/julen/Downloads/datos/adult.train.arff");
+		DataSource source = new DataSource(args[0]);
 		Instances dataset = source.getDataSet();
 		dataset.setClassIndex(dataset.numAttributes());//establece la clase
 		
